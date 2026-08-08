@@ -14,8 +14,8 @@ jobs:
     env:
       IMAGE_NAME: todo-get-tasks-api
       IMAGE_TAG: v2
-      ACR_NAME: sohitacrdev02
-      ACR_LOGIN_SERVER: sohitacrdev02.azurecr.io
+      ACR_NAME: todoappacrdev001
+      ACR_LOGIN_SERVER: todoappacrdev001.azurecr.io
 
     steps:
       - name: Checkout code
@@ -24,9 +24,9 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v2.3.0
         with:
-          client-id: 7fad8abf-358a-4d48-9409-a3240b110650
-          tenant-id: 8ab5781a-7bf2-4b23-8a88-9ac543f6f20f
-          subscription-id: 135c8cc3-c5aa-4358-9e11-f2056457e4a5
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Log in to ACR
         run: |
